@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import AppBar from './components/AppBar';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import {useState} from 'react';
 
 function App() {
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AppBar className="app-bar" />        
+      <TextField label="Username" onChange={()=>setUserName(userName=this.value) } color="warning" variant="standard" size="small" focused required />
+      <br />
+      <TextField label="Password" color="warning" variant="standard" focused required />
+      <br />
+      <Button variant="contained">Login</Button>
     </div>
   );
 }
