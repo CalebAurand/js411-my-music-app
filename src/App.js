@@ -1,23 +1,45 @@
 import './App.css';
-import AppBar from './components/AppBar';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {useState} from 'react';
+import Dashboard from './components/Dashboard';
 
 function App() {
   const [userName, setUserName] = useState('');
-  const [password, setPassword] = useState;
+  const [loggedIn, setLoggedIn] = useState(false);
 
-  return (
+  const handleSubmit = (event) => {
+      setLoggedIn(!loggedIn);
+  };
+
+  return (  
+    loggedIn ? 
     <div className="App">
-      <AppBar className="app-bar" />        
-      <TextField label="Username" onChange={()=>setUserName(userName=this.value) } color="warning" variant="standard" size="small" focused required />
-      <br />
-      <TextField label="Password" color="warning" variant="standard" focused required />
-      <br />
-      <Button variant="contained">Login</Button>
+      <Dashboard 
+      userName={userName} />
+    </div> : 
+    <div className="App">
+      <form onSubmit={()=>handleSubmit()}>        
+        <TextField 
+        label="Username" 
+        color="warning" 
+        variant="standard" 
+        size="small" 
+        onChange={(e)=>setUserName(e.target.value)} 
+        focused 
+        required />
+        <br />
+        <TextField 
+        label="Password"  
+        color="warning" 
+        variant="standard" 
+        focused 
+        required />
+        <br />
+        <Button type="submit" variant="contained">Login</Button>
+      </form>
     </div>
-  );
+  )
 }
 
 export default App;
