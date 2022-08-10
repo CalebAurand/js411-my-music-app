@@ -32,7 +32,12 @@
   color: #61dafb;
 }
 
-
+.about-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
 @keyframes App-logo-spin {
   from {

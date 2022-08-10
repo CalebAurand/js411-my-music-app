@@ -17,7 +17,7 @@ export default function SoundQualCard(props) {
   const handleChange = (event) =>{
     setSoundQual(event.target.value);
 
-    if(soundQual === 'low'){
+    if(event.target.value === 'low'){
       if(!notifications.length){
         setNotifications(arr => [...arr, 'Music quality is degraded. Increase quality if your connection allows it.'])
       }else if(!notifications.find(el=>el==='Music quality is degraded. Increase quality if your connection allows it.')){

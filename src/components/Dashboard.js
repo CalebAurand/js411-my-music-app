@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import OnlineCard from './OnlineCard';
 import VolumeCard from './VolumeCard';
 import SoundQualCard from './SoundQualCard';
+import Button from '@mui/material/Button';
+import {Link} from 'react-router-dom';
 
 const Dashboard = (props) => {
   const {userName} = props;
@@ -11,6 +13,17 @@ const Dashboard = (props) => {
   return (
     <div className="dashboard">
       <h2 style={{color: "grey"}}>Hello {userName} old chum!</h2>
+      <h4>
+        <Link style={{textDecoration: "none"}} to="/about">
+          Learn more about us here.
+          <Button 
+            variant="contained"
+            color="secondary"
+          >
+            About Page
+          </Button>
+        </Link>
+      </h4>
       <section style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
         <OnlineCard notifications={notifications} setNotifications={setNotifications} />
         <VolumeCard notifications={notifications} setNotifications={setNotifications} />
